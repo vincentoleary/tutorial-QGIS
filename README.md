@@ -41,50 +41,64 @@ http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html This exerc
 
 This is a similar example using the Jamaican dataset weather_stations.zip
 
-1. In QGIS, go to Layers > Add Vector Layer. Browse to the downloaded weather_stations.zip file and click Open.
+- In QGIS, go to Layers > Add Vector Layer. Browse to the downloaded weather_stations.zip file and click Open.
 
-2. Weather stations should be loaded into QGIS now.
+- Weather stations should be loaded into QGIS now.
 
-3. Using the identify tool, you can select any point to see the attribute table. After selecting a point with the identify tool, a window will pop up showing all available fields for that point. Select "Feature Form" either from the window toolbar or under the Actions menu to see data for those fields.
+- Using the identify tool, you can select any point to see the attribute table. After selecting a point with the identify tool, a window will pop up showing all available fields for that point. Select "Feature Form" either from the window toolbar or under the Actions menu to see data for those fields.
 
-4. Now open the Python console using Plugins > Python Console
+- Now open the Python console using Plugins > Python Console
 
-5. The Python console will open a window with a prompt >>> at the bottom. To use Python in QGIS we use the "iface" variable. Here we can access the current layer and store it as a layer variable using `layer = iface.activeLayer()`
+- The Python console will open a window with a prompt >>> at the bottom. To use Python in QGIS we use the "iface" variable. Here we can access the current layer and store it as a layer variable using `layer = iface.activeLayer()`
 
-6. If you get confused or want to know more about a function in Python, you can use dir() to get more information. For example, type `dir(layer)` to see the operations available for layer.
+- If you get confused or want to know more about a function in Python, you can use dir() to get more information. For example, type `dir(layer)` to see the operations available for layer.
 
-7. For this example, we want to get the reference for features at each point. To do this type 
->`for f in layer.getFeatures():`
->`  print f`
+- For this example, we want to get the reference for features at each point. To do this type 
+
+`for f in layer.getFeatures():`
+
+	`  print f`
   
-These are two seperate lines in the console, and the second line should include the two spaces before typing. This will iterate through each feature and print them out in the console.
+- These are two seperate lines in the console, and the second line should include the two spaces before typing. This will iterate through each feature and print them out in the console.
 
-8. Modifying the above code, we can quickly view the annual rainfall at each station. Type in 
->`for f in layer.getFeature()`
->`  print f['Station_Na'], ['Ann]`
+- Modifying the above code, we can quickly view the annual rainfall at each station. Type in 
+
+`for f in layer.getFeature()`
+
+	`  print f['Station_Na'], ['Ann]`
   
-The variables to print must be surrounded by quotations for Python to understand them. The names came from the attribute table we identified earlier. Try changing the variables to view the height or parish instead.
+- The variables to print must be surrounded by quotations for Python to understand them. The names came from the attribute table we identified earlier. Try changing the variables to view the height or parish instead.
 
-9. Now that we know how to find features using Python, we can use it to find coordinates. This is done using the geometry() function and stores the values in the variable geom. Type this into the console 
->`for f in layer.getFeatures():`
->`  geom = f.geometry()`
->`  print geom.asPoint()`
+- Now that we know how to find features using Python, we can use it to find coordinates. This is done using the geometry() function and stores the values in the variable geom. Type this into the console 
+
+`for f in layer.getFeatures():`
+
+	`  geom = f.geometry()`
+
+	`  print geom.asPoint()`
   
-10. Using the functions we have learned so far, we can now export this information to a text file using Python. Enter into the console 
->`for f in layer.getFeatures():`
->`  geom = f.geometry()`
->`  print '%s, %s, %s' % (f['Station_Na'], f['Parish'], geom.asPoint())`
+- Using the functions we have learned so far, we can now export this information to a text file using Python. Enter into the console
+ 
+`for f in layer.getFeatures():`
+
+	`  geom = f.geometry()`
+
+	`  print '%s, %s, %s' % (f['Station_Na'], f['Parish'], geom.asPoint())`
   
-Once you have confirmed this is working as intended, we can open up a new file and export the data to there. To do this, simple replace the file path with your own and type this into the console:
+- Once you have confirmed this is working as intended, we can open up a new file and export the data to there. To do this, simple replace the file path with your own and type this into the console:
 
->`output_file = open('c:/Users/Vincent/Desktop/weather.txt', 'w')`
+`output_file = open('c:/Users/Vincent/Desktop/weather.txt', 'w')`
 
->`for f in layer.getFeatures():`
->`  geom = f.geometry()`
->`  line = '%s, %s, %s\n' % (f['Station_Na'], f['Parish'], geom.asPoint())`
->`  unicode_line = line.encode('utf-8')`
->`  output_file.write(unicode_line)`
+`for f in layer.getFeatures():`
 
->`output_file.close()`
+	`  geom = f.geometry()`
 
-You can now open the text file and view the data for the stations we just extracted using Python in QGIS.
+	`  line = '%s, %s, %s\n' % (f['Station_Na'], f['Parish'], geom.asPoint())`
+
+	`  unicode_line = line.encode('utf-8')`
+
+	`  output_file.write(unicode_line)`
+
+`output_file.close()`
+
+- You can now open the text file and view the data for the stations we just extracted using Python in QGIS.
