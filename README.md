@@ -1,9 +1,9 @@
-#QGIS documentation
-
+QGIS documentation
+======
 Reference for installation and initial setup of QGIS for analysis of biodiversity. This documentation was created as part of my co-op at the Academy of Natural Sciences and is intended to be a guide for installing QGIS for the first time.
 
-#Installation 
-
+Installation 
+------
 > The most recent version of QGIS can be obtained from their website here: http://qgis.org/en/site/forusers/download.html Once you have selected the correct OS and version it will ask to download. This normally takes 5 - 10 minutes to complete. If using a Windows computer, simply click the file after the download is finished and follow the prompts to install. You may need administrator priviledges to complete this step.
 
 > When the installation is finished, you can open QGIS Desktop and begin to use the software immediately. For troubleshooting and reference, the most up to date documentation can always be found online here: http://qgis.org/en/docs/index.html 
@@ -12,16 +12,14 @@ Reference for installation and initial setup of QGIS for analysis of biodiversit
 
 > Once you are comfortable with the basics, the QGIS user guide can be found online here: http://docs.qgis.org/2.8/en/docs/index.html
 
-#Data Preparation
+Data Preparation
+------
 
-> 
+Examples
+------
 
-#Examples
-
->
-
-#Data Analysis
-
+Data Analysis
+------
 > While QGIS has many useful functions built it, it can be extended through programs like Python and R. QGIS has a native console for Python and can be configured to run R scripts as well. This section describes how to get started using these programs in QGIS.
 
 > To install both Python and R, it is recommended to begin using Anaconda. The most recent version of Anaconda can be found here: https://www.continuum.io/downloads This is a simple way to install Python and several packages relevant to data science and analysis. Once the correct version has been selected, it will download to the computer. Windows users can simply click the file to begin installation. This may require administrator priviledges to complete this step. 
@@ -36,8 +34,8 @@ Reference for installation and initial setup of QGIS for analysis of biodiversit
 
 > To use R in QGIS, the best practice is to use RStudio for data analysis and preparation and then to import the results into QGIS for viewing. 
 
-#Examples
-
+Examples
+------
 > Python can be run directly from the console within QGIS. There are many examples of how to use Python for GIS online and on the QGIS website. A good introduction to Python for QGIS can be found here: 
 http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html This exercise will walk you through using Python to export a list of stations with meta about those locations.
 
@@ -51,9 +49,7 @@ http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html This exerc
 
 > 4. Now open the Python console using Plugins > Python Console
 
-> 5. The Python console will open a window with a prompt >>> at the bottom. To use Python in QGIS we use the "iface" variable. Here we can access the current layer and store it as a layer variable using: 
-
-layer = iface.activeLayer()
+> 5. The Python console will open a window with a prompt >>> at the bottom. To use Python in QGIS we use the "iface" variable. Here we can access the current layer and store it as a layer variable using: printf(layer = iface.activeLayer())
 
 > 6. If you get confused or want to know more about a function in Python, you can use dir() to get more information. For example, type dir(layer) to see the operations available for layer.
 
