@@ -55,50 +55,48 @@ This is a similar example using the Jamaican dataset weather_stations.zip
 
 - For this example, we want to get the reference for features at each point. To do this type 
 
-`for f in layer.getFeatures():`
-
-	`  print f`
+```python
+for f in layer.getFeatures():
+  print f
+```
   
 - These are two seperate lines in the console, and the second line should include the two spaces before typing. This will iterate through each feature and print them out in the console.
 
 - Modifying the above code, we can quickly view the annual rainfall at each station. Type in 
 
-`for f in layer.getFeature()`
-
-	`  print f['Station_Na'], ['Ann]`
+```python
+for f in layer.getFeature()
+  print f['Station_Na'], ['Ann]
+```
   
 - The variables to print must be surrounded by quotations for Python to understand them. The names came from the attribute table we identified earlier. Try changing the variables to view the height or parish instead.
 
 - Now that we know how to find features using Python, we can use it to find coordinates. This is done using the geometry() function and stores the values in the variable geom. Type this into the console 
 
-`for f in layer.getFeatures():`
-
-	`  geom = f.geometry()`
-
-	`  print geom.asPoint()`
+```python
+for f in layer.getFeatures():
+  geom = f.geometry()
+  print geom.asPoint()
+```
   
 - Using the functions we have learned so far, we can now export this information to a text file using Python. Enter into the console
  
-`for f in layer.getFeatures():`
-
-	`  geom = f.geometry()`
-
-	`  print '%s, %s, %s' % (f['Station_Na'], f['Parish'], geom.asPoint())`
+```python
+for f in layer.getFeatures():
+  geom = f.geometry()
+  print '%s, %s, %s' % (f['Station_Na'], f['Parish'], geom.asPoint())
+```
   
 - Once you have confirmed this is working as intended, we can open up a new file and export the data to there. To do this, simple replace the file path with your own and type this into the console:
 
-`output_file = open('c:/Users/Vincent/Desktop/weather.txt', 'w')`
-
-`for f in layer.getFeatures():`
-
-	`  geom = f.geometry()`
-
-	`  line = '%s, %s, %s\n' % (f['Station_Na'], f['Parish'], geom.asPoint())`
-
-	`  unicode_line = line.encode('utf-8')`
-
-	`  output_file.write(unicode_line)`
-
-`output_file.close()`
+```python
+output_file = open('c:/Users/Vincent/Desktop/weather.txt', 'w')
+for f in layer.getFeatures():
+  geom = f.geometry()
+  line = '%s, %s, %s\n' % (f['Station_Na'], f['Parish'], geom.asPoint())
+  unicode_line = line.encode('utf-8')
+  output_file.write(unicode_line)
+output_file.close()
+```
 
 - You can now open the text file and view the data for the stations we just extracted using Python in QGIS.
