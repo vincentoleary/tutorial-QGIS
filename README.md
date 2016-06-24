@@ -1,6 +1,6 @@
 #QGIS documentation
 ------
-Reference for installation and initial setup of QGIS for analysis of biodiversity. This documentation was created as part of my co-op at the Academy of Natural Sciences and is intended to be a guide for installing QGIS for the first time.
+Reference for installation and initial setup of QGIS for analysis of biodiversity. This documentation was created as part of my co-op at the Academy of Natural Sciences and is intended to be a guide for installing QGIS for the first time. It is intended to be a guide to setup QGIS for the first time and begin to use it for studying biodiversity of landsnails in Jamaica as part of ongoing research at ANSP.
 
 ###Installation 
 ------
@@ -15,8 +15,60 @@ Once you are comfortable with the basics, the QGIS user guide can be found onlin
 ###Data Preparation
 ------
 
+In order to get started using QGIS, data needs to be correctly prepared to be opened in the program. Data can be opened from other GIS programs or projected from Excel.
+
+Viewing a map or points in QGIS:
+
+- In this respository are several datasets ready to be used in QGIS as examples. Landuse.zip, soil_erosion.zip, and soil_textures.zip can be downloaded and opened in QGIS. 
+
+- After downloading the zip folder, open QGIS and go to Layer > Add Layer > Add Vector Layer. Browse to the downloaded zip file and click Open. 
+
+- You should now see an image of Jamaica. The layer will probably only show one color at first. To view more information, right click the layer name in the menu, and select "Properties" from the dropdown.
+
+- A new window will open up with settings for labels, attributes, and more. Click on "Style" on the left and you will be able to change how the layer looks in QGIS.
+
+- To color the map based on the data, click on the dropdown at the top that says "Single Symbol". Select Catergorized instead.
+
+- Now click on the column dropdown and select the values you want to use for coloring the map. For example, in the landuse layer you would select LU_98 from the dropdown.
+
+- Before QGIS will change the colors, you must add these values by selecting "Classify" at the bottom of the window. This will add all the values into QGIS and show you what colors match what data. Click "OK" to view the new map colors.
+
+------
+
+Viewing Excel files with coorinates in QGIS:
+
+- To open Excel files in QGIS, save the Excel file as a .csv file.
+
+- After saving, open QGIS and go to Layer > Add Layer > Add Delimited Text Layer
+
+- This will open a new window to open the .csv file with. Use the "Browse" button to find the correct file, and select the fields to be used for the X and Y coordinates. Once it is ready, click "OK" to open the file as points in QGIS.
+
+- The new points will show up as a layer in QGIS like other data, and can be colored, searched, and labeled using the tools in this guide and online.
+
 ###Examples
 ------
+
+Search by attributes: 
+
+QGIS can be used to display stations based on their species or number of species. In order to do this, you will need to add a layer with columns for the number of species and which species are present at each site. Then use the built in search tools to highlight stations that match your questions. 
+
+- An example using search to find capital cities around the world can be found here: http://www.qgistutorials.com/en/docs/working_with_attributes.html
+
+Change labels: 
+
+QGIS can show labels for each site designed by you. Download the weather_stations.zip file in this repository to use for a simple example on using labels.
+
+- In QGIS, go to Layer > Add Layer > Add Vector Layer. Browse to the downloaded weather_stations.zip file and click Open. This is based on the information from the user guide, found here: http://docs.qgis.org/2.0/en/docs/training_manual/vector_classification/label_tool.html 
+
+- Weather stations should be loaded into QGIS now.
+
+- Go to View > Toolbars > Label and make sure it is checked. If not, check the box next to Label to activate. 
+
+- Go to the Label toolbar and click the yellow tag. If you hover the mouse over the tag it will say "Layer Labeling Options." 
+
+- A new window will open for Label Settings. At the top will be a small box next to "Label this layer with". Click this box to activate labels and begin to make changes to them. In the dropdown box you should select the data that will be used to make the labels. You can use site names, amount of precipitation for that month, or any other data stored in the layer.
+
+- In this window, it is now possible to change the position of labels, make them only show if the map is zoomed in, change their background image or color, and change the text size. For more examples of making labels, use the link above.
 
 ###Data Analysis
 ------
@@ -41,7 +93,7 @@ http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html This exerc
 
 This is a similar example using the Jamaican dataset weather_stations.zip
 
-- In QGIS, go to Layers > Add Vector Layer. Browse to the downloaded weather_stations.zip file and click Open.
+- In QGIS, go to Layer > Add Layer > Add Vector Layer. Browse to the downloaded weather_stations.zip file and click Open.
 
 - Weather stations should be loaded into QGIS now.
 
@@ -100,3 +152,11 @@ output_file.close()
 ```
 
 - You can now open the text file and view the data for the stations we just extracted using Python in QGIS.
+
+------
+
+RStudio can perform many complex analyses and be used to create maps viewable in QGIS. An introduction to using R for GIS and its limitations and advantages can be found here: http://www.r-bloggers.com/r-an-integrated-statistical-programming-environment-and-gis/
+
+Another interesting example for R can be found http://spatialanalysis.co.uk/2013/04/analysis-visualisation-spatial-data/
+
+A great beginner's guide to R I use is http://swirlstats.com/ It is downloaded as a package for R and teaches you how to use R through interactive examples.
